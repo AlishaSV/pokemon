@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import PokemonInfo from "./components/PokemonInfo";
 import PokemonFilter from "./components/PokemonFilter";
 import PokemonTable from "./components/PokemonTable";
+import PokemonContext from "./PokemonContext";
 
 const Title = styled.h1`
   text-align: center;
@@ -29,21 +30,26 @@ function App() {
     }, [])
 
     return (
+        <PokemonContext.Provider
+         value={{
+             filter,
+             setFilter,
+             selectedItem,
+             setSelectedItem,
+             pokemon,
+             setPokemon
+         }}>
         <Container>
             <Title>Pokemon search</Title>
-
             <TwoColumnLayout>
                 <div>
-                    <PokemonFilter filter={filter} setFilter={setFilter}
-                    /> <PokemonTable
-                        filter={filter}
-                        pokemon={pokemon}
-                        setSelectedItem={setSelectedItem}
-                    />
+                    <PokemonFilter/>
+                    <PokemonTable/>
                 </div>
-                {selectedItem && <PokemonInfo {...selectedItem} />}
+                {selectedItem && <PokemonInfo />}
             </TwoColumnLayout>
         </Container>
+        </PokemonContext.Provider>
     );
 }
 
