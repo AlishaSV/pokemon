@@ -1,9 +1,9 @@
 import React from "react";
 import PokemonType from "../PokemonTypes";
-import {useSelector} from "react-redux";
+import useBearStore from "../store";
 
 const PokemonInfo = () => {
-    const selectedItem = useSelector((state) => state.selectedItem)
+    const selectedItem = useBearStore(state => state.selectedItem)
     return selectedItem ? (
     <div>
         <h1>{selectedItem.name.english}</h1>

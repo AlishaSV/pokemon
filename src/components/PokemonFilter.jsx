@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import {useDispatch, useSelector} from "react-redux";
+import useBearStore from "../store";
 
 const Input = styled.input`
   width: 100%;
@@ -9,18 +9,14 @@ const Input = styled.input`
 `
 
 const PokemonFilter = () => {
-    const dispatch = useDispatch()
-    const filter = useSelector(state => state.filter)
+    const setFilter = useBearStore(state => state.setFilter)
+    const filter = useBearStore(state => state.filter)
 
     return <Input
         type='text'
         value={filter}
         onChange={(evt) => {
-            dispatch({
-                type: 'SET_FILTER',
-                payload: evt.target.value
-            }
-            )
+            setFilter(evt.target.value)
         }}
     />
 }
