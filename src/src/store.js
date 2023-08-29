@@ -21,13 +21,15 @@ const useBearStore = create((set) => ({
         }))
 }))
 
-fetch('http://localhost:3000/pokemon.json')
-    .then((resp) => resp.json())
-    .then((pokemon) =>
-    useBearStore.setState((state) => ({
-        ...state,
-        pokemon
-    }))
-    )
+if(typeof window !== 'undefined') {
+    fetch('/pokemon.json')
+        .then((resp) => resp.json())
+        .then((pokemon) =>
+            useBearStore.setState((state) => ({
+                ...state,
+                pokemon
+            }))
+        )
+}
 
 export default useBearStore
