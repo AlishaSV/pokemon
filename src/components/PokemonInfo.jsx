@@ -1,4 +1,3 @@
-import React from "react";
 import PokemonType from "@/src/PokemonTypes";
 import useBearStore from "@/src/store";
 
