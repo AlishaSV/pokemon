@@ -18,7 +18,7 @@ const PokemonRow = ({pokemon, onClick}) => (
 )
 
 PokemonRow.propTypes = {
-    pokemon: PropTypes.arrayOf(PokemonType),
+    pokemon: PokemonType,
     onClick: PropTypes.func
 };
 
