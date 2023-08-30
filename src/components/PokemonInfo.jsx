@@ -1,4 +1,4 @@
-import PokemonType from "@/src/PokemonTypes";
+"use client"
 import useBearStore from "@/src/store";
 
 const PokemonInfo = () => {
@@ -20,5 +20,4 @@ const PokemonInfo = () => {
 
 export default PokemonInfo
 
-PokemonInfo.propTypes = PokemonType
 

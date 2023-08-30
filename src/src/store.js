@@ -1,13 +1,13 @@
 import { create } from 'zustand'
 
-const useBearStore = create((set) => ({
-    pokemon: [],
+const useBearStore = create( (set) => ({
+    pokemons: [],
     filter: '',
     selectedItem: null,
-    setPokemon: (pokemon) =>
+    setPokemon: (pokemons) =>
         set((state) => ({
             ...state,
-            pokemon,
+            pokemons,
         })),
     setFilter: (filter) =>
         set((state) => ({
@@ -20,16 +20,5 @@ const useBearStore = create((set) => ({
             selectedItem,
         }))
 }))
-
-if(typeof window !== 'undefined') {
-    fetch('/pokemon.json')
-        .then((resp) => resp.json())
-        .then((pokemon) =>
-            useBearStore.setState((state) => ({
-                ...state,
-                pokemon
-            }))
-        )
-}
 
 export default useBearStore

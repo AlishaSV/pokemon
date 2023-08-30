@@ -1,11 +1,6 @@
-import styled from "@emotion/styled";
+"use client"
 import useBearStore from "@/src/store";
-
-const Input = styled.input`
-  width: 100%;
-  font-size: x-large;
-  padding: 0.2rem;
-`
+import {Input} from "@/components/styled";
 
 const PokemonFilter = () => {
     const setFilter = useBearStore(state => state.setFilter)
